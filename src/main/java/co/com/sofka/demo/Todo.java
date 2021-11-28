@@ -8,7 +8,7 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="Nombre",nullable = false)
+    @Column(name="Nombre")
     private String name;
     private boolean isCompleted;
 

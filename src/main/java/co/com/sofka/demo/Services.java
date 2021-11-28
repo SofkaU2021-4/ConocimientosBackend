@@ -4,10 +4,9 @@ package co.com.sofka.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 
 @Service
-public class services {
+public class Services {
     @Autowired
     private Repository repository;
 
@@ -26,8 +25,16 @@ public class services {
 
     }
 
-    public void delete(Long id){
+    public String delete(Long id){
         repository.delete(get(id));
+        return "Eliminado";
+
+    }
+
+    public Todo updateComplete(Long id){
+        Todo todo = get(id);
+        todo.setCompleted(true);
+        return repository.save(todo);
 
     }
 }
