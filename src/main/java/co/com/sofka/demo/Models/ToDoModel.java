@@ -1,16 +1,24 @@
-package co.com.sofka.demo;
+package co.com.sofka.demo.Models;
 
 
 import javax.persistence.*;
 
 @Entity
-public class Todo {
+public class ToDoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name="Nombre")
+    private  Long id;
     private String name;
     private boolean isCompleted;
+    private Long  id_tarea;
+
+    public Long getId_tarea() {
+        return id_tarea;
+    }
+
+    public void setId_tarea(Long id_tarea) {
+        this.id_tarea = id_tarea;
+    }
 
     public Long getId() {
         return id;
@@ -36,5 +44,3 @@ public class Todo {
         isCompleted = completed;
     }
 }
-
-
