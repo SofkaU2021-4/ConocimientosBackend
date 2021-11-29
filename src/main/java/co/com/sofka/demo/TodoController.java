@@ -30,8 +30,13 @@ public class TodoController {
         return new ResponseEntity(services.delete(id),HttpStatus.OK);
     }
     @PatchMapping("/{id}")
-    public ResponseEntity<?>update(@PathVariable("id") Long id){
-        return new ResponseEntity(services.updateComplete(id),HttpStatus.OK);
+    public ResponseEntity<?>updateState(@PathVariable("id") Long id){
+        return new ResponseEntity(services.updateState(id),HttpStatus.OK);
+    }
+
+    @PatchMapping("/")
+    public ResponseEntity<?>updateName(@RequestBody Todo todo){
+        return new ResponseEntity(services.updateName(todo),HttpStatus.OK);
     }
 
 

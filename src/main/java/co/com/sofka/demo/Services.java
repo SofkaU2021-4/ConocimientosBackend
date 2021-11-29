@@ -31,9 +31,15 @@ public class Services {
 
     }
 
-    public Todo updateComplete(Long id){
+    public Todo updateState(Long id){
         Todo todo = get(id);
         todo.setCompleted(true);
+        return repository.save(todo);
+
+    }
+    public Todo updateName(Todo todo){
+        Todo update = get(todo.getId());
+        update.setName(todo.getName());
         return repository.save(todo);
 
     }
